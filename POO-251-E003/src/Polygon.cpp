@@ -11,7 +11,7 @@ void Polygon::move(const Point& offset) {
         }
     }
 
-std::string Polygon::toSVGstring() const {
+std::string Polygon::toSVGString() const {
     if (vertices.size()< 2) {
         return ""; //polígono tem no minimo 2 vértices
     }

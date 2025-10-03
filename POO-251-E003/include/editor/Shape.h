@@ -22,5 +22,5 @@ public:
      * @brief Gera a representação da forma em formato de string SVG.
      * @return Uma string contendo a tag SVG para esta forma.
      */
-    virtual std::string toSVGstring() const = 0;
+    virtual std::string toSVGString() const = 0;
 };

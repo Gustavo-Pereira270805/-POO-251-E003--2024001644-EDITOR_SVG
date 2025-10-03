@@ -8,6 +8,7 @@
 #include <vector>
 #include <sstream>
 #include <stdexcept>
+#include <iostream>
 void showHelp() {
     std::cout << "--- Editor SVG (Modo CLI) ---\n"
               << "Comandos disponiveis:\n"

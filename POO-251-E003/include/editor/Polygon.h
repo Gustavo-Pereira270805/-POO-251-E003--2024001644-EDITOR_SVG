@@ -18,11 +18,13 @@ class Polygon : public Shape {
 
         void move(const Point& offset) override;
 
-        std::string toSVGstring() const override;
+        std::string toSVGString() const override;
 
         /** @brief Adiciona um novo vértice ao final do polígono. */
         void addVertex(const Point& vertex);
 
         /** @brief Retorna uma referência constante para a lista de vértices. */
         const std::vector<Point>& getVertices() const;
-}
+    private:
+        std::vector<Point> vertices;
+};

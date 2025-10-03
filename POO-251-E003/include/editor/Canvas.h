@@ -20,7 +20,7 @@ class Canvas {
     /**
      * @brief Gera o conteúdo completo do arquivo SVG, incluindo todas as formas.
      */
-        std::string toSVGFilestring() const;
+        std::string toSVGFileString() const;
 
     /** @brief Retorna uma referência constante para a lista de formas. */
         const std::vector<std::unique_ptr<Shape>>& getShapes() const;
