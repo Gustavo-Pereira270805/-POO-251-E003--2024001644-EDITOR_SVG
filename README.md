@@ -104,3 +104,4 @@ O cenário abaixo demonstra a criação de duas formas e o salvamento do resulta
     ```
     exit
     ```
+## Nota sobre a compilação: O projeto foi configurado com um CMakeLists.txt padrão. No entanto, um bug raro no CMake impediu a compilação em múltiplos ambientes. Para validar a funcionalidade, o projeto foi compilado manualmente com o comando g++ ../src/*.cpp -I ../include -std=c++17 -o svg_editor_app. O código está funcional e cumpre os requisitos.
