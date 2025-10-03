@@ -14,4 +14,5 @@ add_executable(svg_editor_app
     src/EditorController.cpp
 )
 
-target_include_directories(POO-251-E003 PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
+
+target_include_directories(svg_editor_app PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
