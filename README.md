@@ -100,3 +100,9 @@ Este método usa as ferramentas de compilação diretamente no terminal.
     .\Debug\svg_editor_app.exe
     ```
 ## Nota sobre a compilação: O projeto foi configurado com um CMakeLists.txt padrão. No entanto, um bug raro no CMake impediu a compilação em múltiplos ambientes. Para validar a funcionalidade, o projeto foi compilado manualmente com o comando g++ ../src/*.cpp -I ../include -std=c++17 -o svg_editor_app. O código está funcional e cumpre os requisitos.
+---
+### Vídeo de Demonstração
+
+Um vídeo curto demonstrando as funcionalidades da aplicação está disponível no link abaixo:
+
+**[Assista ao vídeo de demonstração aqui](https://youtu.be/235XHHvlFh0)**
