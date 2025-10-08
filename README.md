@@ -37,71 +37,66 @@ A segunda etapa consiste em um programa de terminal (CLI) que funciona como um e
 
 O programa permite a criação de polígonos via comandos de texto e salva o resultado em um arquivo `.svg`, que pode ser visualizado em navegadores web.
 
-### Como Compilar e Executar
+## Como Compilar e Executar
 
-#### Pré-requisitos
-* **CMake** (versão 3.10+)
-* Um compilador C++ (ex: **g++** do MinGW-w64)
+Este projeto utiliza CMake e foi desenvolvido e testado no Windows 10/11 com o compilador MSVC (Visual Studio) e o framework Qt 6.
 
-#### Passos para Compilação
-Com os pré-requisitos instalados, a compilação é feita com os seguintes comandos a partir da raiz do projeto:
+### Pré-requisitos
 
-1.  **Criar e entrar no diretório de build:**
-    ```bash
+Antes de compilar, garanta que você tenha o seguinte software instalado:
+
+1.  **Compilador C++ (MSVC):**
+    * **Visual Studio Build Tools** (2019 ou mais recente). Durante a instalação, é essencial selecionar a carga de trabalho **"Desenvolvimento para desktop com C++"**.
+
+2.  **CMake:**
+    * Versão 3.10 ou superior. Recomenda-se marcar a opção **"Add CMake to the system PATH"** durante a instalação.
+
+3.  **Framework Qt 6:**
+    * Instalado através do Qt Online Installer. É crucial que a versão instalada seja a para **MSVC 64-bit** (ex: `MSVC 2019 64-bit`).
+
+4.  **Variável de Ambiente (Importante):**
+    * Para que o CMake encontre o Qt, a variável de ambiente `CMAKE_PREFIX_PATH` deve ser criada, apontando para a pasta da sua instalação do Qt.
+    * **Exemplo de valor:** `C:\Qt\6.7.0\msvc2019_64`
+
+### Método 1: Via Qt Creator (Recomendado)
+
+Esta é a maneira mais simples e direta de compilar e executar o projeto.
+
+1.  **Abra o Qt Creator.**
+2.  Vá em `File` > `Open File or Project...`.
+3.  Navegue até a pasta raiz do projeto e selecione o arquivo **`CMakeLists.txt`**.
+4.  Na tela "Configure Project", selecione o "Kit" que corresponde à sua instalação (ex: **`Desktop Qt 6.7.0 MSVC2019 64bit`**) e clique em `Configure Project`.
+5.  Após o projeto carregar, basta clicar no ícone de **triângulo verde (Run)** no canto inferior esquerdo para compilar e executar a aplicação.
+
+### Método 2: Via Linha de Comando (Developer Command Prompt)
+
+Este método usa as ferramentas de compilação diretamente no terminal.
+
+1.  **Abra o terminal correto:** Inicie o **"Developer Command Prompt for VS 2022"** (ou sua versão correspondente) a partir do Menu Iniciar.
+
+2.  **Navegue até a pasta do projeto:**
+    ```cmd
+    cd caminho\para\a\pasta\do\projeto
+    ```
+
+3.  **Crie e entre no diretório de build:**
+    ```cmd
     mkdir build
     cd build
     ```
-2.  **Configurar com CMake:**
-    ```bash
-    # Para Windows com MinGW:
-    cmake -G "MinGW Makefiles" ..
-    
-    # Para Linux/macOS:
+
+4.  **Execute o CMake** para configurar o projeto. Ele detectará o compilador MSVC automaticamente.
+    ```cmd
     cmake ..
     ```
-3.  **Compilar o projeto:**
-    ```bash
+
+5.  **Compile o projeto:**
+    ```cmd
     cmake --build .
     ```
 
-#### Execução do Programa
-O executável será gerado na pasta `build`. Para rodar o programa:
-
-* **No Windows:** `.\svg_editor_app.exe`
-* **No Linux/macOS:** `./svg_editor_app`
-
-### Comandos e Exemplo de Uso
-
-A aplicação opera através de um prompt `>`. Os seguintes comandos estão disponíveis:
-
-* `help`: Mostra a lista de todos os comandos.
-* `add polygon x,y ...`: Adiciona um polígono ao canvas a partir de uma lista de vértices.
-* `render`: Exibe o código SVG do canvas atual diretamente no terminal.
-* `save [nome_do_arquivo]`: Salva o canvas em um arquivo `.svg`.
-* `exit`: Encerra a aplicação.
-
-#### Exemplo de Uso
-O cenário abaixo demonstra a criação de duas formas e o salvamento do resultado.
-
-1.  **Adicionar um triângulo:**
-    ```
-    add polygon 150,50 50,250 250,250
-    ```
-2.  **Adicionar um retângulo:**
-    ```
-    add polygon 300,100 500,100 500,200 300,200
-    ```
-3.  **Salvar o arquivo:**
-    ```
-    save meu_desenho.svg
-    ```
-    Este comando cria o arquivo `meu_desenho.svg` dentro da pasta `build`.
-
-4.  **Visualizar o resultado:**
-    O arquivo SVG gerado pode ser aberto em qualquer navegador web para visualizar a imagem.
-
-5.  **Sair do programa:**
-    ```
-    exit
+6.  **Execute a aplicação:** O executável estará em uma subpasta (geralmente `Debug`).
+    ```cmd
+    .\Debug\svg_editor_app.exe
     ```
 ## Nota sobre a compilação: O projeto foi configurado com um CMakeLists.txt padrão. No entanto, um bug raro no CMake impediu a compilação em múltiplos ambientes. Para validar a funcionalidade, o projeto foi compilado manualmente com o comando g++ ../src/*.cpp -I ../include -std=c++17 -o svg_editor_app. O código está funcional e cumpre os requisitos.
